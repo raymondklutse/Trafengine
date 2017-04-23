@@ -8,27 +8,39 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/traffenginebackground"
     tools:context="com.trafengineproject.owner.traff_engine.Homepage">
     <TextView
-        android:text="Trafengine"
+        android:text="Traff-Engine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="129dp"
         android:id="@+id/homepagetxt"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="40dp"
+
+        />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="      Enter Location here    "
-        android:textColor="#808080"
+        android:ellipsize="start"
+        android:gravity="center_horizontal"
         android:ems="10"
         android:layout_below="@+id/homepagetxt"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         android:id="@+id/locationtxt"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="@android:color/black"
+        android:background="@android:color/white"
+        android:padding="16dp"
         />
 
 
@@ -39,7 +51,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
         android:id="@+id/srchbtn"
+        android:textAllCaps="true"
+        android:textSize="30dp"
         android:layout_below="@+id/locationtxt"
-        android:layout_alignLeft="@+id/homepagetxt"
-        android:layout_alignStart="@+id/homepagetxt" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:padding="20dp"
+        />
 </RelativeLayout>
