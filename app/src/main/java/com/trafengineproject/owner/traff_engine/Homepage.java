@@ -3,7 +3,6 @@ package com.trafengineproject.owner.traff_engine;
  * Created by Raymond Klutse Ewoenam on 21/04/2017.
  */
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -232,7 +231,7 @@ public class Homepage extends AppCompatActivity implements LocationListener,View
             String c_time = getcurrenttime();
             String method = "insertdata";
 
-            //Method call to performing task in background
+            //Method call to performing terask in background
             BackgroundTask backgroundTask = new BackgroundTask(this);
             backgroundTask.execute(method, s_clat, s_clong, s_cspeed, cur_city, road_name, c_date,c_time);
             finish();
