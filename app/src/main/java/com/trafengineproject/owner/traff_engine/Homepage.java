@@ -57,6 +57,13 @@ public class Homepage extends AppCompatActivity implements View.OnKeyListener {
 
     //Destination Node
     private static final String END = "K";
+    String[] values = {
+            "abc_0", "def_0", "ghi_0",
+            "abc_1", "def_1", "ghi_1",
+            "abc_2", "def_2", "ghi_2",
+            "abc_3", "def_3", "ghi_3",
+    };
+
 
 
     @Override
@@ -71,25 +78,31 @@ public class Homepage extends AppCompatActivity implements View.OnKeyListener {
         searchbuton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (CheckInternetConnectivity() != false) {
+
+                if (CheckInternetConnectivity() != false ) {
 
                     String text = editText.getText().toString();
                     Intent i = new Intent(Homepage.this, TraffengineMaps.class);
                     String texttosend = text;
                     i.putExtra("ad_txt", texttosend);
                     startActivity(i);
-                } else {
+                }
+                if (editText.equals(null)){
+                    showToast("Please enter your location");
+                }
+                else {
                     showInternetConnectionError();
-
+                    Intent i = new Intent(Homepage.this, Homepage.class);
+                    startActivity(i);
                 }
 
 
             }
         });
 
-        speedview = (TextView) findViewById(R.id.speedtxt);
-
-        locationview = (TextView) findViewById(R.id.locatviewtext);
+//        speedview = (TextView) findViewById(R.id.speedtxt);
+//
+//        locationview = (TextView) findViewById(R.id.locatviewtext);
 
         if (runtime_permission() != false) {
             enable_service();
@@ -168,8 +181,8 @@ public class Homepage extends AppCompatActivity implements View.OnKeyListener {
             broadcastreceiver = new BroadcastReceiver() {
                 @Override
                 public void onReceive(Context context, Intent intent) {
-                speedview.append("\n" + intent.getExtras().get("Speed"));
-                    locationview.append("\n" + intent.getExtras().get("Address"));
+//                speedview.append("\n" + intent.getExtras().get("Speed"));
+//                    locationview.append("\n" + intent.getExtras().get("Address"));
                 }
             };
         }
