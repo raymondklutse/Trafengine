@@ -58,6 +58,8 @@ public class StartActivity extends AppCompatActivity {
                         new DialogInterface.OnClickListener(){
                             public void onClick(DialogInterface dialog, int id){
                                 StartActivity.this.finish();
+                                System.gc();
+                                System.exit(0);
                             }
                         });
         alertDialogBuilder.setNegativeButton("No",

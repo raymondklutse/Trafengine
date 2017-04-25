@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Traff-Engine</string>
+    <string name="intial_speed"> 0.0 km/h </string>
+    <string name="service_name">GPS_Service</string>
     <string name="title_activity_alternative_route_maps">Map</string>
     <string name="title_activity_traffengine_maps">Map</string>
 </resources>

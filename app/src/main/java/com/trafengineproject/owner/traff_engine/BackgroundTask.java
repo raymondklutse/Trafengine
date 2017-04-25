@@ -98,7 +98,7 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
 
 
         }
-        else if(method.equals("searchinfo")){
+        if(method.equals("searchinfo")){
             String searchLatitude = params[1];
             String searchLongitude =  params[2];
 
