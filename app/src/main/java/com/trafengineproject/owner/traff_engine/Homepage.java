@@ -87,13 +87,10 @@ public class Homepage extends AppCompatActivity implements View.OnKeyListener {
                     i.putExtra("ad_txt", texttosend);
                     startActivity(i);
                 }
-                if (editText.equals(null)){
-                    showToast("Please enter your location");
-                }
+
                 else {
                     showInternetConnectionError();
-                    Intent i = new Intent(Homepage.this, Homepage.class);
-                    startActivity(i);
+
                 }
 
 
@@ -141,6 +138,7 @@ public class Homepage extends AppCompatActivity implements View.OnKeyListener {
             return;
         }
         locationManager.requestLocationUpdates(provider, 0, 0, locationListener);
+
         scheduleSendUserInfo(gpslocation);
 
     }
@@ -368,7 +366,7 @@ public class Homepage extends AppCompatActivity implements View.OnKeyListener {
             //Method call to performing terask in background
             BackgroundTask backgroundTask = new BackgroundTask(this);
             backgroundTask.execute(method, s_clat, s_clong, s_cspeed, cur_city, road_name, c_date,c_time);
-//            finish();
+            finish();
             showToast("Data has been sent to Database");
         }
     }
@@ -418,7 +416,60 @@ public class Homepage extends AppCompatActivity implements View.OnKeyListener {
     public void AddGraphDataStrcture(){
         Graph graph = new Graph();
         DepthFirst df = new DepthFirst();
+          /* These are longitude and lattude coordiantes to identify each node.
+        These coordinates also serve as marking points for each edge.*/
 
+        //Madina-Zongo Junction
+        double  a_latitude = 5.678381;
+        double  a_longitude = -0.173035;
+
+        //Atomic Round About
+        double b_latitude = 5.667448;
+        double b_longitude = -0.177112;
+
+        //UPSA Junction
+        double c_latitude = 5.659847;
+        double c_longitude = -0.178571;
+
+        //Okponglo
+        double d_latitude = 5.640714;
+        double d_longitude = -0.178163;
+
+        //Hannah-Madina Junction
+        double e_latitude = 5.67774;
+        double e_longitude = -0.164859;
+
+        //Methodist Book Shop Junction
+        double f_latitude = 5.677676;
+        double f_longitude = -0.164859;
+
+        //Presec Junction
+        double g_latitude = 5.667705;
+        double g_longitude = -0.171221;
+
+        //Hannah-Presec Junction
+        double h_latitude = 5.671089;
+        double h_longitude = -0.177114;
+
+        //Hannah Junction
+        double i_latitude = 5.671174;
+        double i_longitude = -0.170406;
+
+        //Rawlings Cirlce
+        double j_latitude = 5.667811;
+        double j_longitude = -0.165009;
+
+        //UPSA-Presec Junction
+        double k_latitude = 5.659793;
+        double k_longitude = -0.169097;
+
+        //Madina-UPSA Junction
+        double l_latitude = 5.659633;
+        double l_longitude = -0.164741;
+
+        //ICAG Junction
+        double m_latitude = 5.64159;
+        double m_longitude = -0.169773;
 
         graph.addTwoWayVertex("0","A", "B",23);
         graph.addTwoWayVertex("1","A", "E",70);
@@ -453,6 +504,12 @@ public class Homepage extends AppCompatActivity implements View.OnKeyListener {
 //
 
     }
+
+    public int averagespeed(double s_lat,double s_long,double d_lat,double d_long){
+        int averagespeed = 0;
+        return averagespeed ;
+    }
+
 
     @Override
     public boolean onKey(View v, int keyCode, KeyEvent event) {

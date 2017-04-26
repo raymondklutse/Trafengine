@@ -154,5 +154,18 @@ public class TraffengineMaps extends FragmentActivity implements OnMapReadyCallb
         return true;
     }
 
+    public int averagespeed(double s_lat,double s_long,double d_lat,double d_long){
+        String s_clat = Double.toString(location.getLatitude());
+        String s_clong = Double.toString(location.getLongitude());
+        String method = "searchinfo";
+
+        //Method call to performing terask in background
+        BackgroundTask backgroundTask = new BackgroundTask(this);
+        backgroundTask.execute(method, s_clat, s_clong);
+        finish();
+        int averagespeed = 0;
+        return averagespeed ;
+    }
+
 
 }

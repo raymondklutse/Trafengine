@@ -17,7 +17,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.io.IOException;
@@ -49,13 +48,13 @@ public class AlternativeRouteMaps extends FragmentActivity implements OnMapReady
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        Bundle bundle = getIntent().getExtras();
+        mMap = googleMap;Bundle bundle = getIntent().getExtras();
         String startpoint = bundle.getString("ad_txt_1");
         String endpoint = bundle.getString("ad_txt_2");
         Double start_latitude, start_longitude, end_latitude,end_longitude;
         float zoom = 18;
 
+/*
         start_latitude = getAddLatitude(this,startpoint);
         start_longitude = getAddLongitude(this,startpoint);
         end_latitude = getAddLatitude(this,endpoint);
@@ -70,8 +69,20 @@ public class AlternativeRouteMaps extends FragmentActivity implements OnMapReady
         mMap.addMarker(new MarkerOptions().position(EndPoint).title("Marker in" +endpoint));
         PolylineOptions polylineOptions = new PolylineOptions().add(InitialPoint).add(EndPoint).width(5).color(Color.BLUE).geodesic(true);
         mMap.addPolyline(polylineOptions);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom( InitialPoint, zoom));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom( InitialPoint, zoom)); */
 
+
+        final LatLng A = new LatLng( 5.678381 ,-0.173035);
+        final LatLng E = new LatLng(  5.67774 ,-0.164859);
+        final LatLng F = new LatLng(5.677676 ,-0.164859);
+        final LatLng J = new LatLng( 5.667811 ,-0.165009);
+        final LatLng L = new LatLng( 5.659633 ,-0.164741);
+        final LatLng K = new LatLng(  5.659793 ,-0.169097);
+        final LatLng M = new LatLng(  5.659633 ,-0.164741);
+        final LatLng D = new LatLng( 5.640714 ,-0.178163);
+        PolylineOptions polylineOptions = new PolylineOptions().add(A).add(E).add(F).add(J).add(L).add(K).width(5).color(Color.BLUE).geodesic(true);
+        mMap.addPolyline(polylineOptions);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom( A, zoom));
     }
 
 
