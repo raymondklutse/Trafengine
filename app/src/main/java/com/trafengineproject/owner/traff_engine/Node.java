@@ -9,25 +9,24 @@ public class Node {
     final private String id;
     final private String name;
     final private char label;
-//        final private double v_latitude;
-//        final private double v_longitude;
-//        final private boolean wasvisited;
+    final private double v_latitude;
+    final private double v_longitude;
+    final private boolean wasvisited;
 
 
 
     //constructor
-    public Node(String id, String name,char label){
+    public Node(String id, String name,char label,double v_latitude,double v_longitude){
 
         this.id = id;
         this.name = name;
         this.label = label;
-//                this.v_latitude = v_latitude;
-//                this.v_longitude = v_longitude;
-//                wasvisited = false;
+        this.v_latitude = v_latitude;
+        this.v_longitude = v_longitude;
+        wasvisited = false;
 
 
     }
-
     //mehtod to get ID of vertex
     public String getId() {
         return id;
@@ -43,14 +42,14 @@ public class Node {
     }
 
 
-////mehtod to get latitude of vertex
-// public double getvertexlatitude(){
-//            return v_latitude;
-//        }
-////mehtod to get longitude of vertex
-//        public double getvertexlongitude(){
-//            return v_longitude;
-//        }
+//mehtod to get latitude of vertex
+public double getvertexlatitude(){
+            return v_latitude;
+      }
+//mehtod to get longitude of vertex
+      public double getvertexlongitude(){
+           return v_longitude;
+     }
 
     @Override
     public int hashCode() {

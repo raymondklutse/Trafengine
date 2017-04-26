@@ -35,7 +35,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
@@ -412,64 +411,64 @@ public class Homepage extends AppCompatActivity implements View.OnKeyListener {
         return cur_time;
     }
 
-
+/*
     public void AddGraphDataStrcture(){
         Graph graph = new Graph();
         DepthFirst df = new DepthFirst();
           /* These are longitude and lattude coordiantes to identify each node.
-        These coordinates also serve as marking points for each edge.*/
+        These coordinates also serve as marking points for each edge.
 
         //Madina-Zongo Junction
-        double  a_latitude = 5.678381;
-        double  a_longitude = -0.173035;
+        double  a_latitude = 5.678470;
+        double  a_longitude = -0.173056;
 
         //Atomic Round About
-        double b_latitude = 5.667448;
+        double b_latitude = 5.667430;
         double b_longitude = -0.177112;
 
         //UPSA Junction
-        double c_latitude = 5.659847;
-        double c_longitude = -0.178571;
+        double c_latitude = 5.659722;
+        double c_longitude = -0.178657;
 
         //Okponglo
-        double d_latitude = 5.640714;
-        double d_longitude = -0.178163;
+        double d_latitude = 5.640653;
+        double d_longitude = -0.178099;
 
         //Hannah-Madina Junction
-        double e_latitude = 5.67774;
-        double e_longitude = -0.164859;
+        double e_latitude = 5.677680;
+        double e_longitude = -0.170374;
 
         //Methodist Book Shop Junction
-        double f_latitude = 5.677676;
+        double f_latitude =5.677594;
         double f_longitude = -0.164859;
 
         //Presec Junction
-        double g_latitude = 5.667705;
-        double g_longitude = -0.171221;
+        double g_latitude = 5.667622;
+        double g_longitude = -0.171211;
 
         //Hannah-Presec Junction
-        double h_latitude = 5.671089;
-        double h_longitude = -0.177114;
+        double h_latitude = 5.670975;
+        double h_longitude = -0.171125;
 
         //Hannah Junction
-        double i_latitude = 5.671174;
-        double i_longitude = -0.170406;
+        double i_latitude = 5.671146;
+        double i_longitude = -0.170395;
 
         //Rawlings Cirlce
-        double j_latitude = 5.667811;
-        double j_longitude = -0.165009;
+        double j_latitude = 5.667793;
+        double j_longitude = -0.165031;
 
         //UPSA-Presec Junction
-        double k_latitude = 5.659793;
-        double k_longitude = -0.169097;
+        double k_latitude = 5.659774;
+        double k_longitude = -0.169108;
 
         //Madina-UPSA Junction
-        double l_latitude = 5.659633;
-        double l_longitude = -0.164741;
+        double l_latitude =5.659603;
+        double l_longitude =-0.164731;
 
         //ICAG Junction
-        double m_latitude = 5.64159;
-        double m_longitude = -0.169773;
+        double m_latitude = 5.641538;
+        double m_longitude = -0.169795;
 
         graph.addTwoWayVertex("0","A", "B",23);
         graph.addTwoWayVertex("1","A", "E",70);
@@ -497,18 +496,19 @@ public class Homepage extends AppCompatActivity implements View.OnKeyListener {
 
         //DepthFisrt Algorithm to print all paths from source to destination
         df.depthFirst(graph, visited,END);
+        df.getPathWithHighestTotalCost();
 
-        df.printtotalcostlist(totalcostlist);
-//       //Function to find the highest cost
-        df.findhighestcost(totalcostlist);
-//
+//        df.printtotalcostlist(totalcostlist);
+////       //Function to find the highest cost
+//        df.findhighestcost(totalcostlist);
+
 
     }
 
     public int averagespeed(double s_lat,double s_long,double d_lat,double d_long){
         int averagespeed = 0;
         return averagespeed ;
-    }
+    }*/
 
 
     @Override

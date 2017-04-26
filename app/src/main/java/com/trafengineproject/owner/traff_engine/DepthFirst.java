@@ -5,20 +5,22 @@ package com.trafengineproject.owner.traff_engine;
  */
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class DepthFirst {
 
-    public List<String> addtopath = new ArrayList<String>();
     public List<String> path = new ArrayList<String>();
+    public List<Edge> edges = new ArrayList<Edge>();
     public List<Integer> totalcostlist = new ArrayList<Integer>();
 
+    public Map<Integer, List> pathsMap = new HashMap<Integer, List>();
 
     private String End_Node;
 
-
-    public void depthFirst(Graph graph, LinkedList<String> visited, String End_Node) {
+    public void depthFirst(Graph graph, LinkedList<String> visited,String End_Node) {
         this.End_Node = End_Node;
 
         LinkedList<String> nodes = graph.adjacentNodes(visited.getLast());
@@ -40,6 +42,8 @@ public class DepthFirst {
                 break;
             }
 
+
+
         }
         for (String node : nodes) {
             if (visited.contains(node) || node.equals(End_Node)) {
@@ -52,16 +56,14 @@ public class DepthFirst {
 
 
 
+
+
     }
 
-    private void printPath(LinkedList<String> visited, Graph graph) {
-        int t_cost = totalcost(graph.edgeList);
-//        String list = addtopath;
-//
-//        int maxvalue = findhighestcost(totalcostlist);
+    private void printPath(LinkedList<String> visited,Graph graph1) {
 
-        //Contains list of path elemetns
-        addtopath= new ArrayList<String>();
+        //Contains list of path elements
+        path= new ArrayList<String>();
 
 
 
@@ -69,38 +71,32 @@ public class DepthFirst {
 
             System.out.print(node);
             System.out.print("  ");
-            addtopath.add(node);
 
+            path.add(node);
         }
-
-        path.add(End_Node);
-
-
-        System.out.print( "\n" +"Path is  " + addtopath+ "\n");
-
-        System.out.print( "\n" +"......................................"+ "\n");
-
-        System.out.print( "\n" +"The total cost is " + t_cost+ "\n");
+        int t_cost = totalcost(graph1.edgeList,path);
+        pathsMap.put(t_cost, path);
 
 
-        System.out.print( "\n" +"______________________________________________"+ "\n");
 
-        System.out.println();
+//        printpath(path);
+
     }
 
-    public int  totalcost (List< Edge > edges){
-//        totalcostlist = new ArrayList<Integer>();
+    //Method to find the total cost on a path
+    public int  totalcost (List< Edge > edges,List<String> path){
+
         int totalcost= 0;
         int weight;
-        for (int i = 0;i<addtopath.size()-1;i++)
+        for (int i=0;i<path.size()-1;i++)
         {
-            for (int j = 0;j<edges.size() ;j++ )
+            for (int j = 0;j<edges.size();j++ )
 
             {
-
-                if (edges.get(j).getSource().equals(addtopath.get(i))&& edges.get(j).getDestination().equals(addtopath.get(i+1)))
+//            System.out.println( "\n "+ "The source node is : "+  edges.get(j).getSource() + "\n");
+//            System.out.println( "\n "+ "The weight is node is : "+  edges.get(j).getWeight()+ "\n");
+                if (edges.get(j).getSource().equals(path.get(i))&& edges.get(j).getDestination().equals(path.get(i+1)))
                 {
-
 
                     weight = edges.get(j).getWeight();
                     totalcost+= weight;
@@ -114,12 +110,20 @@ public class DepthFirst {
 
         return totalcost ;
 
-
-
     }
     public void printtotalcostlist(List<Integer> t_list){
 
         System.out.print( "\n" +"The total cost list is  " + t_list + "\n");
+
+    }
+    public void printpath(List<String> path){
+
+        System.out.print( "\n" +"The path is  " + path + "\n");
+
+    }
+    public void printtotalcost(int totalcost){
+
+        System.out.print( "\n" +"The total cost is  " + totalcost + "\n");
 
     }
 
@@ -142,14 +146,18 @@ public class DepthFirst {
                 max = a.get(i);
             }
         }
-        System.out.print( "\n" +"The highest value is " + max + "\n");
+        System.out.print( "\n" +"The highest cost is " + max + "\n");
 
         return max;
     }
-    public List <String> getPathWithHighestTotalCost(){
-        int highestcost = findhighestcost(totalcostlist);
 
-        return this.path;
+
+    public List <String> getPathWithHighestTotalCost(){
+        int maxvalue = findhighestcost(totalcostlist);
+
+        System.out.print("\n" +"The path element with highest cost is " + pathsMap.get(maxvalue)+"\n");
+
+        return pathsMap.get(maxvalue);
     }
 
 

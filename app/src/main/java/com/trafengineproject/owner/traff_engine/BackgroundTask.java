@@ -38,7 +38,7 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
         String method =  params[0];
 
         String insertdata_url = "http://192.168.1.149/userinfo.php";
-        String searchinfo_url = "http://192.168.1.149/trafficsearch.php";
+        String searchinfo_url = "http://192.168.1.149/averagespeed.php";
 
         if (method.equals("insertdata")) {
             String currentLatitude = params[1];
@@ -98,9 +98,9 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
 
 
         }
-        if(method.equals("searchinfo")){
-            String searchLatitude = params[1];
-            String searchLongitude =  params[2];
+        else if(method.equals("searchinfo")){
+            String edgename = params[0];
+
 
 
             try {
@@ -112,8 +112,7 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
                 OutputStream outputStream = httpURLConnection.getOutputStream();
 
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                String search_data = URLEncoder.encode("searchLatitude","UTF-8")+"="+URLEncoder.encode(searchLatitude,"UTF-8")+"&"
-                        +URLEncoder.encode("searchLongitude","UTF-8")+"="+URLEncoder.encode(searchLongitude,"UTF-8");
+                String search_data = URLEncoder.encode("edgename","UTF-8")+"="+URLEncoder.encode(edgename,"UTF-8");
 
                 bufferedWriter.write(search_data);
                 bufferedWriter.flush();
@@ -158,12 +157,12 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
 
     @Override
     protected void onPreExecute () {
-        super.onPreExecute();
     }
 
     @Override
     protected void onPostExecute (String result){
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        //if(result.equals("Registation Succes ...."));
     }
 
     @Override
